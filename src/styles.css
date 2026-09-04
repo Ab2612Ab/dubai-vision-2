@@ -142,3 +142,78 @@
     color: var(--color-foreground);
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Version 2 concept design system (TheRealtorDubai visual proposal).
+ * Pearl / lilac surfaces, charcoal-plum ink, muted brass accent.
+ * ------------------------------------------------------------------------- */
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.975 0.008 300);
+  --foreground: oklch(0.245 0.026 315);
+  --card: oklch(0.995 0.004 300);
+  --card-foreground: oklch(0.245 0.026 315);
+  --popover: oklch(0.995 0.004 300);
+  --popover-foreground: oklch(0.245 0.026 315);
+  --primary: oklch(0.285 0.035 318);
+  --primary-foreground: oklch(0.98 0.01 90);
+  --secondary: oklch(0.945 0.014 305);
+  --secondary-foreground: oklch(0.285 0.035 318);
+  --muted: oklch(0.945 0.014 305);
+  --muted-foreground: oklch(0.505 0.02 315);
+  --accent: oklch(0.72 0.075 78);
+  --accent-foreground: oklch(0.22 0.03 318);
+  --destructive: oklch(0.545 0.17 20);
+  --destructive-foreground: oklch(0.98 0.01 90);
+  --border: oklch(0.9 0.014 305);
+  --input: oklch(0.9 0.014 305);
+  --ring: oklch(0.72 0.075 78);
+  --brass: oklch(0.72 0.075 78);
+  --brass-deep: oklch(0.575 0.075 72);
+  --sand: oklch(0.955 0.02 85);
+  --pearl: oklch(0.99 0.006 300);
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-brass: var(--brass);
+  --color-brass-deep: var(--brass-deep);
+  --color-sand: var(--sand);
+  --color-pearl: var(--pearl);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  font-weight: 600;
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
