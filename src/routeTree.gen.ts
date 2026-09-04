@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InvestRouteImport } from './routes/invest'
+import { Route as AreasAreaSlugRouteImport } from './routes/areas.$areaSlug'
+import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
+import { Route as PropertiesPropertyIdRouteImport } from './routes/properties.$propertyId'
+import { Route as TeamIndexRouteImport } from './routes/team.index'
+import { Route as TeamAgentSlugRouteImport } from './routes/team.$agentSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InvestRoute = InvestRouteImport.update({
+  id: '/invest',
+  path: '/invest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasAreaSlugRoute = AreasAreaSlugRouteImport.update({
+  id: '/areas/$areaSlug',
+  path: '/areas/$areaSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PropertiesIndexRoute = PropertiesIndexRouteImport.update({
+  id: '/properties/',
+  path: '/properties/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PropertiesPropertyIdRoute = PropertiesPropertyIdRouteImport.update({
+  id: '/properties/$propertyId',
+  path: '/properties/$propertyId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamIndexRoute = TeamIndexRouteImport.update({
+  id: '/team/',
+  path: '/team/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamAgentSlugRoute = TeamAgentSlugRouteImport.update({
+  id: '/team/$agentSlug',
+  path: '/team/$agentSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/invest': typeof InvestRoute
+  '/areas/$areaSlug': typeof AreasAreaSlugRoute
+  '/properties/$propertyId': typeof PropertiesPropertyIdRoute
+  '/team/$agentSlug': typeof TeamAgentSlugRoute
+  '/properties/': typeof PropertiesIndexRoute
+  '/team/': typeof TeamIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/invest': typeof InvestRoute
+  '/areas/$areaSlug': typeof AreasAreaSlugRoute
+  '/properties/$propertyId': typeof PropertiesPropertyIdRoute
+  '/team/$agentSlug': typeof TeamAgentSlugRoute
+  '/properties': typeof PropertiesIndexRoute
+  '/team': typeof TeamIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/invest': typeof InvestRoute
+  '/areas/$areaSlug': typeof AreasAreaSlugRoute
+  '/properties/$propertyId': typeof PropertiesPropertyIdRoute
+  '/team/$agentSlug': typeof TeamAgentSlugRoute
+  '/properties/': typeof PropertiesIndexRoute
+  '/team/': typeof TeamIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/invest'
+    | '/areas/$areaSlug'
+    | '/properties/$propertyId'
+    | '/team/$agentSlug'
+    | '/properties/'
+    | '/team/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/invest'
+    | '/areas/$areaSlug'
+    | '/properties/$propertyId'
+    | '/team/$agentSlug'
+    | '/properties'
+    | '/team'
+  id:
+    | '__root__'
+    | '/'
+    | '/invest'
+    | '/areas/$areaSlug'
+    | '/properties/$propertyId'
+    | '/team/$agentSlug'
+    | '/properties/'
+    | '/team/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  InvestRoute: typeof InvestRoute
+  AreasAreaSlugRoute: typeof AreasAreaSlugRoute
+  PropertiesPropertyIdRoute: typeof PropertiesPropertyIdRoute
+  TeamAgentSlugRoute: typeof TeamAgentSlugRoute
+  PropertiesIndexRoute: typeof PropertiesIndexRoute
+  TeamIndexRoute: typeof TeamIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/invest': {
+      id: '/invest'
+      path: '/invest'
+      fullPath: '/invest'
+      preLoaderRoute: typeof InvestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas/$areaSlug': {
+      id: '/areas/$areaSlug'
+      path: '/areas/$areaSlug'
+      fullPath: '/areas/$areaSlug'
+      preLoaderRoute: typeof AreasAreaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/properties/': {
+      id: '/properties/'
+      path: '/properties'
+      fullPath: '/properties/'
+      preLoaderRoute: typeof PropertiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/properties/$propertyId': {
+      id: '/properties/$propertyId'
+      path: '/properties/$propertyId'
+      fullPath: '/properties/$propertyId'
+      preLoaderRoute: typeof PropertiesPropertyIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team/': {
+      id: '/team/'
+      path: '/team'
+      fullPath: '/team/'
+      preLoaderRoute: typeof TeamIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team/$agentSlug': {
+      id: '/team/$agentSlug'
+      path: '/team/$agentSlug'
+      fullPath: '/team/$agentSlug'
+      preLoaderRoute: typeof TeamAgentSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  InvestRoute: InvestRoute,
+  AreasAreaSlugRoute: AreasAreaSlugRoute,
+  PropertiesPropertyIdRoute: PropertiesPropertyIdRoute,
+  TeamAgentSlugRoute: TeamAgentSlugRoute,
+  PropertiesIndexRoute: PropertiesIndexRoute,
+  TeamIndexRoute: TeamIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
