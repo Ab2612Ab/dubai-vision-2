@@ -24,14 +24,14 @@ const description =
 
 export const Route = createFileRoute("/properties/")({
   validateSearch: (search: Record<string, unknown>): SearchParams => ({
-    intent: (["buy", "rent", "invest"] as const).includes(search.intent as Intent)
-      ? (search.intent as Intent)
+    intent: (["buy", "rent", "invest"] as const).includes(search['intent'] as Intent)
+      ? (search['intent'] as Intent)
       : undefined,
-    location: typeof search.location === "string" ? search.location : undefined,
-    type: typeof search.type === "string" ? search.type : undefined,
-    budget: typeof search.budget === "number" ? search.budget : undefined,
-    beds: typeof search.beds === "string" ? search.beds : undefined,
-    status: typeof search.status === "string" ? search.status : undefined,
+    location: typeof search['location'] === "string" ? search['location'] : undefined,
+    type: typeof search['type'] === "string" ? search['type'] : undefined,
+    budget: typeof search['budget'] === "number" ? search['budget'] : undefined,
+    beds: typeof search['beds'] === "string" ? search['beds'] : undefined,
+    status: typeof search['status'] === "string" ? search['status'] : undefined,
   }),
   head: () => ({
     meta: [
@@ -66,7 +66,7 @@ function Discovery() {
   const [view, setView] = useState<"grid" | "list">("grid");
   const [onlySaved, setOnlySaved] = useState(false);
 
-  const intent: Intent = search.intent ?? "buy";
+  const intent: Intent = search['intent'] ?? "buy";
   const set = (patch: SearchParams) =>
     void navigate({ search: (prev) => ({ ...prev, ...patch }), replace: true });
 
@@ -82,15 +82,15 @@ function Discovery() {
     let list = properties.filter((p) =>
       intent === "rent" ? p.purpose === "rent" : p.purpose === "buy",
     );
-    if (search.location) list = list.filter((p) => p.area === search.location);
-    if (search.type) list = list.filter((p) => p.type === search.type);
-    if (search.budget) list = list.filter((p) => p.price <= search.budget!);
-    if (search.beds)
+    if (search['location']) list = list.filter((p) => p.area === search['location']);
+    if (search['type']) list = list.filter((p) => p.type === search['type']);
+    if (search['budget']) list = list.filter((p) => p.price <= search.budget!);
+    if (search['beds'])
       list = list.filter((p) =>
-        search.beds === "studio" ? p.beds === 0 : p.beds >= Number(search.beds),
+        search['beds'] === "studio" ? p.beds === 0 : p.beds >= Number(search['beds']),
       );
-    if (search.status)
-      list = list.filter((p) => (search.status === "ready" ? p.status === "ready" : false));
+    if (search['status'])
+      list = list.filter((p) => (search['status'] === "ready" ? p.status === "ready" : false));
     if (onlySaved) list = list.filter((p) => isFavorite(p.id));
 
     const sorted = [...list];
@@ -133,7 +133,7 @@ function Discovery() {
           <div className="grid gap-4 pt-5 sm:grid-cols-2 lg:grid-cols-5">
             <FilterBlock label="Location">
               <select
-                value={search.location ?? ""}
+                value={search['location'] ?? ""}
                 onChange={(e) => set({ location: e.target.value || undefined })}
                 className={selectClass}
               >
@@ -147,7 +147,7 @@ function Discovery() {
             </FilterBlock>
             <FilterBlock label="Property type">
               <select
-                value={search.type ?? ""}
+                value={search['type'] ?? ""}
                 onChange={(e) => set({ type: e.target.value || undefined })}
                 className={selectClass}
               >
@@ -161,7 +161,7 @@ function Discovery() {
             </FilterBlock>
             <FilterBlock label={intent === "rent" ? "Max AED / year" : "Max budget (AED)"}>
               <input
-                value={search.budget ?? ""}
+                value={search['budget'] ?? ""}
                 inputMode="numeric"
                 onChange={(e) => {
                   const v = e.target.value.replace(/\D/g, "");
@@ -173,7 +173,7 @@ function Discovery() {
             </FilterBlock>
             <FilterBlock label="Bedrooms">
               <select
-                value={search.beds ?? ""}
+                value={search['beds'] ?? ""}
                 onChange={(e) => set({ beds: e.target.value || undefined })}
                 className={selectClass}
               >
@@ -186,7 +186,7 @@ function Discovery() {
             </FilterBlock>
             <FilterBlock label="Completion">
               <select
-                value={search.status ?? ""}
+                value={search['status'] ?? ""}
                 onChange={(e) => set({ status: e.target.value || undefined })}
                 className={selectClass}
               >
@@ -268,7 +268,7 @@ function Discovery() {
             </Note>
           </div>
         ) : null}
-        {search.status === "off-plan" ? (
+        {search['status'] === "off-plan" ? (
           <div className="mt-6">
             <Note>
               The live site offers an Off-Plan filter, but no currently published listing states
