@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ImprovementsRouteImport } from './routes/improvements'
 import { Route as InvestRouteImport } from './routes/invest'
+import { Route as MobileRouteImport } from './routes/mobile'
 import { Route as AreasAreaSlugRouteImport } from './routes/areas.$areaSlug'
 import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
 import { Route as PropertiesPropertyIdRouteImport } from './routes/properties.$propertyId'
@@ -22,9 +24,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImprovementsRoute = ImprovementsRouteImport.update({
+  id: '/improvements',
+  path: '/improvements',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InvestRoute = InvestRouteImport.update({
   id: '/invest',
   path: '/invest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MobileRoute = MobileRouteImport.update({
+  id: '/mobile',
+  path: '/mobile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AreasAreaSlugRoute = AreasAreaSlugRouteImport.update({
@@ -55,7 +67,9 @@ const TeamAgentSlugRoute = TeamAgentSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/improvements': typeof ImprovementsRoute
   '/invest': typeof InvestRoute
+  '/mobile': typeof MobileRoute
   '/areas/$areaSlug': typeof AreasAreaSlugRoute
   '/properties/$propertyId': typeof PropertiesPropertyIdRoute
   '/team/$agentSlug': typeof TeamAgentSlugRoute
@@ -64,7 +78,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/improvements': typeof ImprovementsRoute
   '/invest': typeof InvestRoute
+  '/mobile': typeof MobileRoute
   '/areas/$areaSlug': typeof AreasAreaSlugRoute
   '/properties/$propertyId': typeof PropertiesPropertyIdRoute
   '/team/$agentSlug': typeof TeamAgentSlugRoute
@@ -74,7 +90,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/improvements': typeof ImprovementsRoute
   '/invest': typeof InvestRoute
+  '/mobile': typeof MobileRoute
   '/areas/$areaSlug': typeof AreasAreaSlugRoute
   '/properties/$propertyId': typeof PropertiesPropertyIdRoute
   '/team/$agentSlug': typeof TeamAgentSlugRoute
@@ -85,7 +103,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/improvements'
     | '/invest'
+    | '/mobile'
     | '/areas/$areaSlug'
     | '/properties/$propertyId'
     | '/team/$agentSlug'
@@ -94,7 +114,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/improvements'
     | '/invest'
+    | '/mobile'
     | '/areas/$areaSlug'
     | '/properties/$propertyId'
     | '/team/$agentSlug'
@@ -103,7 +125,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/improvements'
     | '/invest'
+    | '/mobile'
     | '/areas/$areaSlug'
     | '/properties/$propertyId'
     | '/team/$agentSlug'
@@ -113,7 +137,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ImprovementsRoute: typeof ImprovementsRoute
   InvestRoute: typeof InvestRoute
+  MobileRoute: typeof MobileRoute
   AreasAreaSlugRoute: typeof AreasAreaSlugRoute
   PropertiesPropertyIdRoute: typeof PropertiesPropertyIdRoute
   TeamAgentSlugRoute: typeof TeamAgentSlugRoute
@@ -130,11 +156,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/improvements': {
+      id: '/improvements'
+      path: '/improvements'
+      fullPath: '/improvements'
+      preLoaderRoute: typeof ImprovementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/invest': {
       id: '/invest'
       path: '/invest'
       fullPath: '/invest'
       preLoaderRoute: typeof InvestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mobile': {
+      id: '/mobile'
+      path: '/mobile'
+      fullPath: '/mobile'
+      preLoaderRoute: typeof MobileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/areas/$areaSlug': {
@@ -177,7 +217,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ImprovementsRoute: ImprovementsRoute,
   InvestRoute: InvestRoute,
+  MobileRoute: MobileRoute,
   AreasAreaSlugRoute: AreasAreaSlugRoute,
   PropertiesPropertyIdRoute: PropertiesPropertyIdRoute,
   TeamAgentSlugRoute: TeamAgentSlugRoute,
