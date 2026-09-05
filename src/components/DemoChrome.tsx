@@ -8,7 +8,7 @@ const nav = [
   { to: "/", label: "Home" },
   { to: "/properties", label: "Buy | Rent" },
   { to: "/invest", label: "Invest" },
-  { to: "/areas/town-square", label: "Area Guide" },
+  { to: "/areas/$areaSlug", params: { areaSlug: "town-square" }, label: "Area Guide" },
   { to: "/team", label: "Team" },
   { to: "/mobile", label: "Mobile journey" },
   { to: "/improvements", label: "Improvement summary" },
@@ -55,6 +55,7 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
+              params={"params" in item ? item.params : undefined}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               activeProps={{ className: "text-foreground font-medium" }}
             >
@@ -92,6 +93,7 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
+              params={"params" in item ? item.params : undefined}
               onClick={() => setOpen(false)}
               className="block border-b border-border/60 py-3 text-sm text-foreground last:border-0"
             >
@@ -126,6 +128,7 @@ export function SiteFooter() {
               <li key={item.to}>
                 <Link
                   to={item.to}
+                  params={"params" in item ? item.params : undefined}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {item.label}

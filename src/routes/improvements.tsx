@@ -251,7 +251,7 @@ function Improvements() {
         </div>
       </Section>
 
-      <Section id-anchor="seller" className="pt-0">
+      <Section className="pt-0">
         <div id="seller" className="scroll-mt-28 rounded-sm border border-border bg-card p-8">
           <p className="eyebrow">Selling and letting</p>
           <h2 className="mt-3 font-display text-2xl font-semibold">
