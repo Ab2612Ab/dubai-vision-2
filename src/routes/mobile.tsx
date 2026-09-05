@@ -31,7 +31,7 @@ export const Route = createFileRoute("/mobile")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: MobileJourney;
+  component: MobileJourney,
 });
 
 type Step = "search" | "results" | "detail" | "enquiry";
@@ -285,7 +285,7 @@ function MobileJourney() {
                   ))}
                   {results.length === 0 ? (
                     <p className="text-sm text-muted-foreground">
-                      No публично listed properties match. Widen the area or type.
+                      No publicly listed properties match. Widen the area or type.
                     </p>
                   ) : null}
                 </div>
