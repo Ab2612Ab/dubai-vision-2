@@ -55,7 +55,7 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              params={"params" in item ? item.params : undefined}
+              params={"params" in item ? item.params : {}}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               activeProps={{ className: "text-foreground font-medium" }}
             >
@@ -93,7 +93,7 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              params={"params" in item ? item.params : undefined}
+              params={"params" in item ? item.params : {}}
               onClick={() => setOpen(false)}
               className="block border-b border-border/60 py-3 text-sm text-foreground last:border-0"
             >
@@ -128,7 +128,7 @@ export function SiteFooter() {
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  params={"params" in item ? item.params : undefined}
+                  params={"params" in item ? item.params : {}}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {item.label}
