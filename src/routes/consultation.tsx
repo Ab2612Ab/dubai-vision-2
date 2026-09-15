@@ -17,6 +17,7 @@ export const Route = createFileRoute('/consultation')({
 
 function ConsultationPage() {
   const search = useSearch({ from: '/consultation' }) as { context?: string; intent?: string }
+  const defaultIntent = ['buy', 'rent', 'sell', 'invest'].includes(search.intent || '') ? search.intent! : 'buy'
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [error, setError] = useState('')
 
@@ -69,14 +70,13 @@ function ConsultationPage() {
           <form onSubmit={submit} className="mt-10 space-y-6 rounded-sm border border-border bg-card p-6 sm:p-8">
             <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
             <input type="hidden" name="context" value={search.context || ''} />
-            <input type="hidden" name="intent" value={['buy', 'rent', 'sell', 'invest'].includes(search.intent || '') ? search.intent : 'buy'} />
 
             <div className="grid gap-6 sm:grid-cols-2">
               <label className="text-sm font-medium">Name<input required name="name" maxLength={100} className="mt-2 w-full rounded-sm border border-input bg-background px-3 py-3 font-normal" /></label>
               <label className="text-sm font-medium">Email<input required type="email" name="email" maxLength={200} className="mt-2 w-full rounded-sm border border-input bg-background px-3 py-3 font-normal" /></label>
               <label className="text-sm font-medium">Phone<input required name="phone" maxLength={40} className="mt-2 w-full rounded-sm border border-input bg-background px-3 py-3 font-normal" /></label>
               <label className="text-sm font-medium">I want to
-                <select name="intent" defaultValue={['buy', 'rent', 'sell', 'invest'].includes(search.intent || '') ? search.intent : 'buy'} className="mt-2 w-full rounded-sm border border-input bg-background px-3 py-3 font-normal">
+                <select name="intent" defaultValue={defaultIntent} className="mt-2 w-full rounded-sm border border-input bg-background px-3 py-3 font-normal">
                   <option value="buy">Buy</option><option value="rent">Rent</option><option value="sell">Sell</option><option value="invest">Invest</option>
                 </select>
               </label>
