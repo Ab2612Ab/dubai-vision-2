@@ -1,24 +1,37 @@
 # Dubai Vision 2
 
-Create an interactive, premium visual concept/demo for improving the existing TheRealtorDubai website (https://www.therealtordubai.com/) without replacing it. Treat this as a Version 2 experience proposal, not a live-site change. First inspect the public site to preserve recognizable brand identity and reuse only verifiable public property/team/service details where possible; never invent listings, testimonials, statistics, awards, licenses, financial returns, or technical issues. Build working in-demo navigation and interactions for: (1) homepage with headline ‘Find Your Place in Dubai’, copy ‘Buy, rent, sell or invest with experienced Dubai real estate advisors.’, Buy/Rent/Sell/Invest actions and prominent search fields; featured properties, reasons/trust only if verifiable, areas, services, team and final consultation CTA; (2) clean property discovery with Buy/Rent/Invest, type, location, budget, bedrooms, ready/off-plan filters, count, clear filters, sort, grid/list, favorites and strong cards; (3) property detail with gallery, specifications, contextual inquiry/WhatsApp CTAs and a visible prefilled-message preview that does not send; (4) purpose-built mobile property journey/search-details-enquiry, swipeable imagery and sticky WhatsApp/Call/Schedule Viewing controls; (5) agent profile containing only public factual details; (6) Invest in Dubai page without financial claims; (7) area-guide detail. Include an Improvement Summary clearly explaining what/why/user/enquiry impact, what can be implemented incrementally vs deeper work. Add a clearly visible ‘Concept demo — not live website’ label. Include a performance/SEO opportunity section explicitly framed as items to test/validate, never as claimed defects. Elegant, high-end Dubai real estate, clean, sophisticated, mobile-first, and avoid generic template styling, fabricated content, or excessive visual effects. Do not publish or alter the source site.
+A premium, interactive Version 2 concept for TheRealtorDubai. This repository contains a standalone concept/demo experience and does not replace or alter the live source website.
 
-This project was built with [Lovable](https://lovable.dev).
+## Included experience
 
-## Build with Lovable
+- Dubai real-estate homepage with Buy, Rent, Sell and Invest journeys
+- Property discovery with filters, sorting, favorites and responsive cards
+- Property detail pages with galleries, specifications and contextual contact actions
+- Mobile-first property browsing journey
+- Public-fact-only agent profiles
+- Invest in Dubai guidance without fabricated financial claims
+- Area guides and service information
+- Improvement Summary covering proposed UX, performance, SEO and accessibility work
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/e5b4506a-f7fe-4812-848e-ad8a8e30bf08).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+The concept intentionally uses verifiable public information and labels itself as a concept demo where appropriate. It does not claim live-site changes, fabricated statistics, awards, testimonials, returns or technical defects.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requirements: Node.js and npm.
 
 ```sh
 git clone <this-repository-url>
 cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+### Production checks
+
+```sh
+npm run lint
+npm run build
+npm run preview
+```
+
+The application uses TanStack Start with Vite and is structured for deployment to a production hosting environment such as Vercel.
