@@ -1,0 +1,17 @@
+{
+  "name": "TheRealtorDubai",
+  "short_name": "TheRealtorDubai",
+  "description": "Dubai real estate experience for buying, renting, selling and investing.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ed",
+  "theme_color": "#17324d",
+  "icons": [
+    {
+      "src": "/dubai-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
