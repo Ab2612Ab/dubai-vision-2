@@ -12,6 +12,7 @@ const nav = [
   { to: "/team", label: "Team" },
   { to: "/mobile", label: "Mobile journey" },
   { to: "/improvements", label: "Improvement summary" },
+  { to: "/consultation", label: "Consultation" },
 ] as const;
 
 export function ConceptBanner() {
@@ -65,10 +66,10 @@ export function SiteHeader() {
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
           <Link
-            to="/improvements"
+            to="/consultation"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            Improvement summary
+            Consultation
           </Link>
           <Link
             to="/properties"
@@ -148,7 +149,7 @@ export function SiteFooter() {
             Property, team, service and area content is transcribed from publicly visible pages on
             therealtordubai.com. Photography is illustrative and does not depict the actual listed
             units. No testimonials, awards, licence details or financial performance figures are
-            shown anywhere in this demo, and no enquiry, call or message is ever sent.
+            shown anywhere in this demo.
           </p>
           <p className="mt-3">
             <a
