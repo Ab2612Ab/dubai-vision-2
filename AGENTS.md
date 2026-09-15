@@ -1,10 +1,7 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Project guidance
+
+- Keep the Dubai real-estate concept production-buildable.
+- Preserve existing routes, property data, responsive behavior and accessible interactions unless a change is required to fix a verified issue.
+- Do not add fabricated listings, testimonials, awards, statistics, financial returns or licensing claims.
+- Keep secrets out of source control and use deployment environment variables for server-side credentials.
+- Run `npm run lint` and `npm run build` before considering a production deployment complete.
